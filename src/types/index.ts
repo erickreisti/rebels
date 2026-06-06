@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface Wine {
   id: string;
   name: string;
@@ -6,7 +8,7 @@ export interface Wine {
   region: string;
   alcohol: string;
   pairing: string;
-  image: string;
+  image: string | StaticImageData;
 }
 
 export interface BlogPost {
@@ -15,9 +17,9 @@ export interface BlogPost {
   author: {
     name: string;
     role: string;
-    avatar: string;
+    avatar: string | StaticImageData;
   };
-  image: string;
+  image: string | StaticImageData;
   excerpt: string;
 }
 

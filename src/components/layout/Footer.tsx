@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { FiDroplet } from "react-icons/fi"; // FiDroplet no lugar de FiWine
 

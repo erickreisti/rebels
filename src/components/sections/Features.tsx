@@ -1,8 +1,9 @@
+"use client";
 import { motion } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
-import backgroundMarbled from "../assets/images/background-marbled.webp";
-import premium from "../assets/images/premium.png";
-import rosewinePreview from "../assets/images/rosewine-preview.png";
+import backgroundMarbled from "../../assets/images/background-marbled.webp";
+import premium from "../../assets/images/premium.png";
+import rosewinePreview from "../../assets/images/rosewine-preview.png";
 
 export function Features() {
   return (
@@ -10,7 +11,7 @@ export function Features() {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{ backgroundImage: `url(${backgroundMarbled})` }}
+        style={{ backgroundImage: `url(${backgroundMarbled.src})` }}
       ></div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -96,14 +97,14 @@ export function Features() {
                 }}
               >
                 <img
-                  src={rosewinePreview} // ALTERADO: rosewine-preview.png
+                  src={rosewinePreview.src} // ALTERADO: rosewine-preview.png
                   alt="Premium Rose Wine"
                   className="w-full h-96 object-contain mx-auto"
                 />
               </motion.div>
               <div className="absolute -top-4 -left-4">
                 <img
-                  src={premium} // ALTERADO: premium.png
+                  src={premium.src} // ALTERADO: premium.png
                   alt="Premium Seal"
                   className="w-20 h-20 object-contain"
                 />

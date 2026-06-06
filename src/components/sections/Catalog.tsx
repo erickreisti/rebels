@@ -1,6 +1,7 @@
+"use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import redWine from "../assets/images/redwine-preview.png";
+import redWine from "../../assets/images/redwine-preview.png";
 
 const wineTypes = [
   { id: "rose", name: "Rosé Wine" },
@@ -72,7 +73,7 @@ export function Catalog() {
                       {" "}
                       {/* 100% width */}
                       <img
-                        src={wine.image}
+                        src={wine.image.src}
                         alt={wine.name}
                         className="w-full h-80 object-contain rounded-lg" // Aumentado: h-80
                       />

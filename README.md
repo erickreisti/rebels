@@ -1,69 +1,59 @@
-# React + TypeScript + Vite
+# Wine for Life 🍷
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma landing page premium para a marca **Wine for Life**, construída com as tecnologias mais modernas do ecossistema React/Next.js.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **[Next.js](https://nextjs.org/)** – Framework React com App Router
+- **[TypeScript](https://www.typescriptlang.org/)** – Tipagem estática
+- **[Tailwind CSS v4](https://tailwindcss.com/)** – Estilização utility-first
+- **[Framer Motion](https://www.framer.com/motion/)** – Animações fluidas
+- **[React Icons](https://react-icons.github.io/react-icons/)** – Biblioteca de ícones
 
-## Expanding the ESLint configuration
+## 📁 Estrutura do Projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── app/                  # App Router (Next.js)
+│   ├── layout.tsx        # Layout raiz (HTML, metadados)
+│   └── page.tsx          # Página principal
+├── assets/
+│   └── images/           # Imagens estáticas importadas
+├── components/
+│   ├── layout/           # Componentes de estrutura (Header, Footer)
+│   ├── sections/         # Seções da landing page (Hero, About, etc.)
+│   └── ui/               # Componentes de UI reutilizáveis
+├── hooks/
+│   └── useTheme.tsx      # Hook para gerenciar tema claro/escuro
+├── lib/                  # Utilitários e helpers
+├── styles/
+│   └── globals.css       # CSS global e configuração do Tailwind v4
+└── types/
+    ├── index.ts          # Interfaces e tipos globais
+    └── images.d.ts       # Declarações de tipo para assets de imagem
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Como rodar
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Instalar dependências
+npm install
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Servidor de desenvolvimento
+npm run dev
+
+# Build de produção
+npm run build
+
+# Iniciar produção
+npm start
 ```
+
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
+
+## 🎨 Paleta de Cores
+
+As cores do projeto são definidas via variáveis CSS no `src/styles/globals.css` seguindo o padrão do Tailwind v4:
+
+- **Primary**: Tons de vinho e rosa (`#fef2f4` → `#1a0f14`)
+- **Accent**: Dourado (`#f5a818`)

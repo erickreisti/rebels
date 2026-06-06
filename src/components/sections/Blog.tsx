@@ -1,9 +1,10 @@
+"use client";
 import { motion } from "framer-motion";
-import avatar1 from "../assets/images/avatar-1.jpg";
-import avatar2 from "../assets/images/avatar-2.jpg";
-import blog1 from "../assets/images/blog-1.jpg";
-import blog2 from "../assets/images/blog-2.jpg";
-import aspas from "../assets/images/aspas.svg"; // IMPORTAÇÃO DAS ASPAS
+import avatar1 from "../../assets/images/avatar-1.jpg";
+import avatar2 from "../../assets/images/avatar-2.jpg";
+import blog1 from "../../assets/images/blog-1.jpg";
+import blog2 from "../../assets/images/blog-2.jpg";
+import aspas from "../../assets/images/aspas.svg"; // IMPORTAÇÃO DAS ASPAS
 
 const blogPosts = [
   {
@@ -55,12 +56,12 @@ export function Blog() {
               {/* Quote Marks - ASPAS.SVG */}
               <div className="flex justify-between px-8 pt-8">
                 <img
-                  src={aspas} // ASPAS.SVG NO LADO ESQUERDO
+                  src={aspas.src} // ASPAS.SVG NO LADO ESQUERDO
                   alt=""
                   className="w-8 h-8"
                 />
                 <img
-                  src={aspas} // ASPAS.SVG NO LADO DIREITO (ROTACIONADA)
+                  src={aspas.src} // ASPAS.SVG NO LADO DIREITO (ROTACIONADA)
                   alt=""
                   className="w-8 h-8 transform rotate-180"
                 />
@@ -69,7 +70,7 @@ export function Blog() {
               {/* Author */}
               <div className="flex items-center space-x-4 px-8 py-4">
                 <img
-                  src={post.author.avatar}
+                  src={post.author.avatar.src}
                   alt={post.author.name}
                   className="w-16 h-16 rounded-full object-cover border-4 border-white shadow"
                 />
@@ -84,7 +85,7 @@ export function Blog() {
               {/* Image - IMAGEM CENTRAL */}
               <div className="px-4 pb-4">
                 <img
-                  src={post.image}
+                  src={post.image.src}
                   alt={post.title}
                   className="w-full h-48 object-cover rounded-lg"
                 />
