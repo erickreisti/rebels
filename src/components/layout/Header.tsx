@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX, FiArrowRight } from "react-icons/fi";
 
 const navItems = [
-  { name: "About", href: "#about" },
-  { name: "Catalog", href: "#catalog" },
-  { name: "Features", href: "#features" },
-  { name: "Blog", href: "#blog" },
-  { name: "Location", href: "#locale" },
+  { name: "The Vibe", href: "#about" },
+  { name: "The Lineup", href: "#catalog" },
+  { name: "Formula", href: "#features" },
+  { name: "Drops", href: "#blog" },
+  { name: "Stockists", href: "#locale" },
 ];
 
 export function Header() {
@@ -23,52 +23,65 @@ export function Header() {
 
   return (
     <>
-      <header
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.5, type: "spring", stiffness: 80 }}
         className={`fixed w-full z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-primary-900/70 backdrop-blur-xl border-b border-primary-800"
+            ? "bg-transparent py-2" 
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="w-full mx-auto px-4 md:px-8 lg:px-12">
           <nav className="flex items-center justify-between h-20 md:h-24 w-full">
             {/* Logo Brutalista com Imagem */}
             <div className="shrink-0">
               <a href="#" className="flex items-center group gap-3 z-10">
-                {/* Logo Tipográfica RE */}
-                <div className="flex items-baseline font-sans font-black tracking-tighter text-4xl md:text-5xl transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(236,72,153,0.5)]">
+                {/* Logo Tipográfica RE - com ponto pulsante */}
+                <div className="flex items-baseline font-sans font-black tracking-tighter text-4xl md:text-5xl transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(236,72,153,0.5)]">
                   <span className="text-accent-500">R</span>
                   <span className="text-white -ml-1 opacity-90">E</span>
-                  <span className="text-purple-500 text-5xl md:text-6xl -ml-1 leading-none">.</span>
+                  <span className="text-purple-500 text-5xl md:text-6xl -ml-1 leading-none animate-pulse">.</span>
                 </div>
-                <span className="text-2xl md:text-3xl font-sans font-black tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-accent-500 via-pink-500 to-purple-500 transition-transform duration-300 group-hover:scale-105">
-                  REBELS ENERGY
-                </span>
               </a>
             </div>
 
             {/* Desktop Nav - Centered Flex */}
-            <div className="hidden lg:flex flex-1 justify-center items-center px-8 z-10">
-              <div className="flex space-x-8">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="relative inline-block font-sans text-xs font-bold text-primary-300 hover:text-pink-400 uppercase tracking-widest transition-all duration-300 py-2 hover:scale-110 hover:[text-shadow:0_0_15px_#ec4899,0_0_30px_#a855f7]"
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-            </div>
+            <AnimatePresence>
+              {!scrolled && (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9, display: "none" }}
+                  transition={{ duration: 0.2 }}
+                  className="hidden lg:flex flex-1 justify-center items-center px-8 z-10"
+                >
+                  <div className="flex space-x-8">
+                    {navItems.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="relative group font-sans font-black text-xs md:text-sm text-primary-50 hover:text-black uppercase tracking-widest transition-all duration-200 px-4 py-2"
+                      >
+                        <span className="relative z-10 transition-colors duration-200">
+                          {item.name}
+                        </span>
+                        {/* Bloco Pílula Brutalista que aparece no hover */}
+                        <span className="absolute inset-0 bg-accent-500 border-2 border-black shadow-[3px_3px_0px_#000] opacity-0 group-hover:opacity-100 transition-all duration-200 scale-95 group-hover:scale-100 group-hover:-translate-y-0.5 group-hover:-translate-x-0.5 -z-10 rounded-full"></span>
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* CTA + Mobile */}
             <div className="shrink-0 flex items-center space-x-4 z-10">
               <motion.a
                 href="#catalog"
-                className="hidden md:flex items-center gap-2 px-7 py-3 bg-linear-to-r from-accent-500 via-pink-500 to-purple-500 text-white text-xs font-sans font-black uppercase tracking-widest rounded-full shadow-[0_0_15px_rgba(236,72,153,0.3)] hover:shadow-[0_0_25px_rgba(236,72,153,0.6)] transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
+                className="hidden md:flex items-center gap-2 px-6 py-2.5 border-2 border-black bg-accent-500 text-black text-xs md:text-sm font-sans font-black uppercase tracking-widest shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] transition-all duration-200 rounded-full"
+                whileTap={{ scale: 0.95 }}
               >
                 Shop Now
                 <FiArrowRight className="w-4 h-4" />
@@ -76,21 +89,21 @@ export function Header() {
 
               <button
                 onClick={() => setIsOpen(true)}
-                className="lg:hidden p-2 text-primary-50 hover:text-accent-500 transition-colors"
+                className={`p-2 bg-surface-800 text-white hover:text-accent-500 flex items-center border-2 border-black shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] transition-all duration-200 rounded-full ${scrolled ? 'lg:flex' : 'lg:hidden'}`}
                 aria-label="Open menu"
               >
-                <FiMenu className="w-8 h-8" />
+                <FiMenu className="w-6 h-6" />
               </button>
             </div>
           </nav>
         </div>
-      </header>
+      </motion.header>
 
-      {/* Mobile Drawer - Tela Cheia Minimalista */}
+      {/* Fullscreen Drawer (Mobile & Desktop Scrolled) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-primary-900 z-50 md:hidden flex flex-col"
+            className="fixed inset-0 bg-primary-900 z-50 flex flex-col"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -103,9 +116,6 @@ export function Header() {
                   <span className="text-white -ml-1 opacity-90">E</span>
                   <span className="text-purple-500 text-5xl -ml-1 leading-none">.</span>
                 </div>
-                <span className="text-2xl font-sans font-black tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-accent-500 via-pink-500 to-purple-500">
-                  REBELS ENERGY
-                </span>
               </div>
               <button
                 onClick={() => setIsOpen(false)}

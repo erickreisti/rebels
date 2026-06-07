@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "Wine for Life",
-  description: "Premium wines for wine lovers",
+  title: "Rebels Energy | Ultra Cyber",
+  description: "Crack the bold. The ultimate cyberpunk energy drink.",
 };
 
 export default function RootLayout({

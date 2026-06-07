@@ -1,63 +1,81 @@
 "use client";
 import { motion } from "framer-motion";
-import { FiChevronDown } from "react-icons/fi";
-import aboutPreview from "../../assets/images/about-preview.png";
 
 export function About() {
   return (
-    <section id="about" className="section bg-white">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Image */}
-          <motion.div
-            className="relative"
+    <section id="about" className="section bg-surface-900 relative overflow-hidden min-h-screen flex flex-col items-center justify-center w-full pt-32 pb-24">
+      {/* Background Glow Cyberpunk */}
+      <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-purple-500 rounded-full blur-[200px] opacity-[0.05] mix-blend-screen -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      
+      {/* Container flex perfeitamente centralizado verticalmente */}
+      <div className="container mx-auto px-4 w-full max-w-[1400px] flex items-center justify-center h-full pt-40 md:pt-20">
+        <div className="relative w-full flex flex-col lg:block items-center lg:h-[65vh] xl:h-[70vh] gap-12 lg:gap-0">
+          
+          {/* Item 1: Taurina Extrema (Esquerda Superior) */}
+          <motion.div 
+            className="lg:absolute lg:top-4 lg:left-0 z-30 w-full max-w-[300px] xl:max-w-[340px] group"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
           >
-            <div className="absolute inset-0 bg-primary-200 rounded-3xl transform -rotate-3 scale-105"></div>
-            <img
-              src={aboutPreview.src}
-              alt="Our Wine Making Process"
-              className="rounded-2xl shadow-2xl w-full" // REMOVIDO: object-cover h-96
-            />
-            <div className="absolute -bottom-6 -right-6 bg-primary-500 w-24 h-24 rounded-full opacity-20"></div>
-          </motion.div>
+            <div className="relative bg-accent-500 p-6 md:p-8 rounded-[24px] border-4 border-black shadow-[10px_10px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[6px_6px_0px_#000] transition-all duration-300 text-right z-10">
+              
+              {/* Linha Conectora Limpa (Vai para a direita até a lata) */}
+              <div className="hidden lg:block absolute top-1/2 left-[98%] w-[12vw] xl:w-[15vw] h-[6px] bg-black -z-10 -translate-y-1/2" />
 
-          {/* Content - LADO DIREITO */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <div className="text-center lg:text-left">
-              <h2 className="section-title">About Us</h2>
-              <h3 className="section-subtitle">the beginning of our passion</h3>
-
-              <p className="text-lg text-primary-600 mb-8 leading-relaxed">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries. But also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing.
+              <h4 className="text-2xl font-sans font-black text-black mb-3 uppercase tracking-tighter" style={{ textShadow: '2px 2px 0px rgba(0,0,0,0.1)' }}>
+                Taurina Extrema
+              </h4>
+              <p className="text-black font-sans font-bold text-sm leading-relaxed opacity-95">
+                Para energia explosiva instantânea. Nossa dose é milimetricamente calculada para dar o máximo de arranque quando o jogo vira e você mais precisa.
               </p>
-
-              <motion.a
-                href="#contact"
-                className="btn-secondary inline-flex items-center space-x-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span>Contact Us</span>
-                <FiChevronDown />
-              </motion.a>
             </div>
           </motion.div>
+
+          {/* Item 2: Zero Açúcar (Esquerda Inferior) */}
+          <motion.div 
+            className="lg:absolute lg:bottom-4 lg:left-8 z-30 w-full max-w-[300px] xl:max-w-[340px] group"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="relative bg-cyan-400 p-6 md:p-8 rounded-[24px] border-4 border-black shadow-[10px_10px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[6px_6px_0px_#000] transition-all duration-300 text-right lg:text-left z-10">
+              
+              {/* Linha Conectora Limpa (Vai para a direita) */}
+              <div className="hidden lg:block absolute top-1/2 left-[98%] w-[10vw] xl:w-[13vw] h-[6px] bg-black -z-10 -translate-y-1/2" />
+
+              <h4 className="text-2xl font-sans font-black text-black mb-3 uppercase tracking-tighter" style={{ textShadow: '2px 2px 0px rgba(0,0,0,0.1)' }}>
+                Zero Açúcar
+              </h4>
+              <p className="text-black font-sans font-bold text-sm leading-relaxed opacity-95">
+                Sem "crash" no final da partida. Toda a potência sem o cansaço que o açúcar traz. Uma onda de energia limpa, constante e que dura a noite inteira.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Item 3: Foco Neural (Direita Central) */}
+          <motion.div 
+            className="lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:right-0 z-30 w-full max-w-[300px] xl:max-w-[340px] group"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: 0.4 }}
+          >
+            <div className="relative bg-pink-500 p-6 md:p-8 rounded-[24px] border-4 border-black shadow-[10px_10px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[6px_6px_0px_#000] transition-all duration-300 text-left z-10">
+              
+              {/* Linha Conectora Limpa (Vai para a esquerda até a lata) */}
+              <div className="hidden lg:block absolute top-1/2 right-[98%] w-[12vw] xl:w-[15vw] h-[6px] bg-black -z-10 -translate-y-1/2" />
+
+              <h4 className="text-2xl font-sans font-black text-black mb-3 uppercase tracking-tighter" style={{ textShadow: '2px 2px 0px rgba(0,0,0,0.1)' }}>
+                Foco Neural
+              </h4>
+              <p className="text-black font-sans font-bold text-sm leading-relaxed opacity-95">
+                Vitaminas B12 e B6 em um complexo otimizado para a mente. Desenvolvido especialmente para gamers e devs que não podem se dar ao luxo de piscar.
+              </p>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

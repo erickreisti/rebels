@@ -9,8 +9,8 @@ import {
 
 export function Location() {
   return (
-    <section id="locale" className="section bg-primary-50">
-      <div className="container mx-auto px-4">
+    <section id="locale" className="section bg-[#0A0608] relative min-h-screen flex flex-col justify-center w-full py-16">
+      <div className="container mx-auto px-4 w-full z-10 relative">
         <div className="text-center mb-16">
           <h2 className="section-title">Where to buy</h2>
           <h3 className="section-subtitle">find our wines near you</h3>
@@ -26,11 +26,11 @@ export function Location() {
             viewport={{ once: true }}
           >
             <div className="relative">
-              <div className="bg-primary-200 rounded-2xl p-8 w-64 h-64 flex items-center justify-center">
-                <FaMapMarkerAlt className="w-24 h-24 text-primary-500" />
+              <div className="bg-surface-800/80 backdrop-blur-md border border-white/5 rounded-3xl p-8 w-64 h-64 flex items-center justify-center shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+                <FaMapMarkerAlt className="w-24 h-24 text-pink-500 drop-shadow-[0_0_15px_rgba(236,72,153,0.5)]" />
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-accent-500 w-16 h-16 rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 bg-white rounded-full"></div>
+              <div className="absolute -bottom-4 -right-4 bg-accent-500 w-16 h-16 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(245,168,24,0.4)]">
+                <div className="w-8 h-8 bg-surface-900 rounded-full"></div>
               </div>
             </div>
           </motion.div>
@@ -44,14 +44,14 @@ export function Location() {
             viewport={{ once: true }}
           >
             <div className="space-y-8">
-              <address className="not-italic space-y-3">
-                <p className="text-2xl font-title text-primary-700">
+              <address className="not-italic space-y-3 font-sans font-bold">
+                <p className="text-2xl text-white tracking-tight">
                   93, place to Tanguy
                 </p>
-                <p className="text-2xl font-title text-primary-700">
+                <p className="text-2xl text-white tracking-tight">
                   Langlois, France
                 </p>
-                <p className="text-2xl font-title text-primary-700">
+                <p className="text-2xl text-accent-500 tracking-tight">
                   320-574-1496
                 </p>{" "}
                 {/* Telefone está aqui como texto */}
@@ -60,7 +60,7 @@ export function Location() {
               <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-8">
                 <motion.a
                   href="#"
-                  className="flex items-center justify-center w-14 h-14 bg-primary-200 rounded-full text-primary-600 hover:bg-primary-300 transition-colors"
+                  className="flex items-center justify-center w-14 h-14 bg-surface-800 border border-white/10 rounded-full text-pink-400 hover:bg-pink-500/20 hover:text-pink-300 hover:border-pink-500/50 hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all"
                   whileHover={{ scale: 1.1, y: -5 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="WhatsApp"
@@ -70,7 +70,7 @@ export function Location() {
 
                 <motion.a
                   href="#"
-                  className="flex items-center justify-center w-14 h-14 bg-primary-200 rounded-full text-primary-600 hover:bg-primary-300 transition-colors"
+                  className="flex items-center justify-center w-14 h-14 bg-surface-800 border border-white/10 rounded-full text-pink-400 hover:bg-pink-500/20 hover:text-pink-300 hover:border-pink-500/50 hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all"
                   whileHover={{ scale: 1.1, y: -5 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Twitter"
@@ -80,7 +80,7 @@ export function Location() {
 
                 <motion.a
                   href="#"
-                  className="flex items-center justify-center w-14 h-14 bg-primary-200 rounded-full text-primary-600 hover:bg-primary-300 transition-colors"
+                  className="flex items-center justify-center w-14 h-14 bg-surface-800 border border-white/10 rounded-full text-pink-400 hover:bg-pink-500/20 hover:text-pink-300 hover:border-pink-500/50 hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all"
                   whileHover={{ scale: 1.1, y: -5 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Instagram"

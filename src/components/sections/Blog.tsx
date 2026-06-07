@@ -35,8 +35,11 @@ const blogPosts = [
 
 export function Blog() {
   return (
-    <section id="blog" className="section bg-white">
-      <div className="container mx-auto px-4">
+    <section id="blog" className="section bg-surface-900 relative overflow-hidden min-h-screen flex flex-col justify-center w-full py-16">
+      {/* Background glow cibernético */}
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500 rounded-full blur-[150px] opacity-5 mix-blend-screen pointer-events-none" />
+      
+      <div className="container mx-auto px-4 w-full">
         <div className="text-center mb-16">
           <h2 className="section-title">Blog</h2>
           <h3 className="section-subtitle">news and curiosities</h3>
@@ -46,7 +49,7 @@ export function Blog() {
           {blogPosts.map((post, index) => (
             <motion.article
               key={post.id}
-              className="bg-primary-50 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow"
+              className="bg-surface-900/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-white/5 hover:border-pink-500/30 hover:shadow-[0_0_30px_rgba(236,72,153,0.15)] transition-all"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -72,13 +75,13 @@ export function Blog() {
                 <img
                   src={post.author.avatar.src}
                   alt={post.author.name}
-                  className="w-16 h-16 rounded-full object-cover border-4 border-white shadow"
+                  className="w-16 h-16 rounded-full object-cover border-4 border-surface-800 shadow"
                 />
                 <div>
-                  <h4 className="font-title font-bold text-primary-700">
+                  <h4 className="font-sans font-black tracking-tight text-white">
                     {post.author.name}
                   </h4>
-                  <p className="text-primary-500">{post.author.role}</p>
+                  <p className="text-pink-400 font-sans text-sm uppercase tracking-wider">{post.author.role}</p>
                 </div>
               </div>
 
@@ -93,10 +96,10 @@ export function Blog() {
 
               {/* Content */}
               <div className="px-8 pb-8">
-                <h3 className="text-xl font-title font-bold text-primary-700 mb-3">
+                <h3 className="text-2xl font-sans font-black text-white mb-3 tracking-tight">
                   {post.title}
                 </h3>
-                <p className="text-primary-600">{post.excerpt}</p>
+                <p className="text-gray-400 font-sans leading-relaxed">{post.excerpt}</p>
               </div>
             </motion.article>
           ))}
