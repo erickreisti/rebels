@@ -44,7 +44,7 @@ export function Header() {
               <a href="#" className="flex items-center group gap-3 z-10">
                 {/* Logo Caveira Alada */}
                 <div className="transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_20px_rgba(236,72,153,0.6)] flex items-center justify-center">
-                  <Image src={logoImg} alt="Rebels Energy Logo" width={112} height={112} className="object-contain" quality={100} priority />
+                  <Image src={logoImg} alt="Rebels Energy Logo" width={112} height={112} className="object-contain" unoptimized={true} priority />
                 </div>
               </a>
             </div>
@@ -69,8 +69,8 @@ export function Header() {
                         <span className="relative z-10 transition-colors duration-200">
                           {item.name}
                         </span>
-                        {/* Bloco Pílula Brutalista que aparece no hover */}
-                        <span className="absolute inset-0 bg-accent-500 border-2 border-black shadow-[3px_3px_0px_#000] opacity-0 group-hover:opacity-100 transition-all duration-200 scale-95 group-hover:scale-100 group-hover:-translate-y-0.5 group-hover:-translate-x-0.5 -z-10 rounded-full"></span>
+                        {/* Bloco Brutalista que aparece no hover */}
+                        <span className="absolute inset-0 bg-accent-500 border-2 border-black shadow-[4px_4px_0px_#000] opacity-0 group-hover:opacity-100 transition-all duration-200 scale-95 group-hover:scale-100 group-hover:-translate-y-1 group-hover:-translate-x-1 -z-10 rounded-none group-hover:-rotate-2"></span>
                       </a>
                     ))}
                   </div>
@@ -82,7 +82,7 @@ export function Header() {
             <div className="shrink-0 flex items-center space-x-4 z-10">
               <motion.button
                 onClick={() => toggleCart()}
-                className="hidden md:flex items-center gap-2 px-6 py-2.5 border-2 border-black bg-accent-500 text-black text-xs md:text-sm font-sans font-black uppercase tracking-widest shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] transition-all duration-200 rounded-full"
+                className="hidden md:flex items-center gap-2 px-6 py-2.5 border-2 border-black bg-accent-500 text-black text-xs md:text-sm font-sans font-black uppercase tracking-widest shadow-[4px_4px_0px_#000] transform -rotate-2 hover:-rotate-1 hover:shadow-[2px_2px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] transition-all duration-200"
                 whileTap={{ scale: 0.95 }}
               >
                 Cart ({cartCount})
@@ -91,7 +91,7 @@ export function Header() {
 
               <button
                 onClick={() => setIsOpen(true)}
-                className={`p-2 bg-surface-800 text-white hover:text-accent-500 flex items-center border-2 border-black shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] transition-all duration-200 rounded-full ${scrolled ? 'lg:flex' : 'lg:hidden'}`}
+                className={`p-2 bg-surface-800 text-white hover:text-accent-500 flex items-center border-2 border-black shadow-[4px_4px_0px_#000] transform -rotate-2 hover:-rotate-1 hover:shadow-[2px_2px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] transition-all duration-200 ${scrolled ? 'lg:flex' : 'lg:hidden'}`}
                 aria-label="Open menu"
               >
                 <FiMenu className="w-6 h-6" />
@@ -114,7 +114,7 @@ export function Header() {
             <div className="flex items-center justify-between p-6 h-24">
               <div className="flex items-center gap-3">
                 <div className="flex items-center drop-shadow-[0_0_20px_rgba(236,72,153,0.6)]">
-                  <Image src={logoImg} alt="Rebels Energy Logo" width={96} height={96} className="object-contain" quality={100} priority />
+                  <Image src={logoImg} alt="Rebels Energy Logo" width={96} height={96} className="object-contain" unoptimized={true} priority />
                 </div>
               </div>
               <button
@@ -148,7 +148,7 @@ export function Header() {
                   setIsOpen(false);
                   toggleCart();
                 }}
-                className="flex items-center justify-center gap-2 w-full py-4 bg-accent-500 border-2 border-black shadow-[4px_4px_0px_#000] text-black font-sans font-black uppercase tracking-tight rounded-full hover:shadow-[2px_2px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
+                className="flex items-center justify-center gap-2 w-full py-4 bg-accent-500 border-2 border-black shadow-[4px_4px_0px_#000] text-black font-sans font-black uppercase tracking-tight transform -rotate-1 hover:rotate-0 hover:shadow-[2px_2px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
               >
                 Cart ({cartCount})
                 <FiShoppingCart className="w-5 h-5" />

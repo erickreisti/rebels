@@ -18,7 +18,7 @@ export function TheVibe() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
           >
-            <div className="relative bg-accent-500 p-6 md:p-8 rounded-[24px] border-4 border-black shadow-[10px_10px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[6px_6px_0px_#000] transition-all duration-300 text-right z-10">
+            <div className="relative bg-accent-500 p-6 md:p-8 rounded-none border-4 border-black shadow-[10px_10px_0px_#000] transform -rotate-2 hover:-rotate-1 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[6px_6px_0px_#000] transition-all duration-300 text-right z-10">
               
               {/* Linha Conectora Limpa (Vai para a direita até a lata) */}
               <div className="hidden lg:block absolute top-1/2 left-[98%] w-[12vw] xl:w-[15vw] h-[6px] bg-black -z-10 -translate-y-1/2" />
@@ -40,7 +40,7 @@ export function TheVibe() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.2 }}
           >
-            <div className="relative bg-cyan-400 p-6 md:p-8 rounded-[24px] border-4 border-black shadow-[10px_10px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[6px_6px_0px_#000] transition-all duration-300 text-right lg:text-left z-10">
+            <div className="relative bg-cyan-400 p-6 md:p-8 rounded-none border-4 border-black shadow-[10px_10px_0px_#000] transform rotate-2 hover:rotate-1 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[6px_6px_0px_#000] transition-all duration-300 text-right lg:text-left z-10">
               
               {/* Linha Conectora Limpa (Vai para a direita) */}
               <div className="hidden lg:block absolute top-1/2 left-[98%] w-[10vw] xl:w-[13vw] h-[6px] bg-black -z-10 -translate-y-1/2" />
@@ -62,7 +62,7 @@ export function TheVibe() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.4 }}
           >
-            <div className="relative bg-pink-500 p-6 md:p-8 rounded-[24px] border-4 border-black shadow-[10px_10px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[6px_6px_0px_#000] transition-all duration-300 text-left z-10">
+            <div className="relative bg-pink-500 p-6 md:p-8 rounded-none border-4 border-black shadow-[10px_10px_0px_#000] transform -rotate-1 hover:rotate-0 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[6px_6px_0px_#000] transition-all duration-300 text-left z-10">
               
               {/* Linha Conectora Limpa (Vai para a esquerda até a lata) */}
               <div className="hidden lg:block absolute top-1/2 right-[98%] w-[12vw] xl:w-[15vw] h-[6px] bg-black -z-10 -translate-y-1/2" />

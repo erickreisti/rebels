@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useCart } from "../../context/CartContext";
-import premium from "../../assets/images/winged-skull-red.png";
+import logoImg from "../../assets/images/winged-skull-glitch-logo.png";
 
 export function TheManifesto() {
   const { toggleCart } = useCart();
@@ -21,10 +21,10 @@ export function TheManifesto() {
       className="relative min-h-screen border-y-4 border-black bg-black"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.5 }}
     >
       <motion.div 
-        className="absolute inset-0 flex items-center justify-center overflow-hidden"
+        className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
         variants={{
           hidden: { clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)' },
           visible: { 
@@ -55,13 +55,13 @@ export function TheManifesto() {
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none z-0" />
 
       {/* Conteúdo do Manifesto (Sequência em Inglês) */}
-      <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center text-center min-h-[60vh] py-20">
+      <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center text-center min-h-screen py-24">
         <motion.h2 
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: [0, 1, 1, 0], scale: [0.8, 1, 1, 1.2] }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 3, times: [0, 0.2, 0.8, 1], delay: 0.5 }}
-          className="absolute w-full px-4 text-[10vw] md:text-[7vw] font-sans font-black text-white uppercase tracking-tighter leading-none pointer-events-none glitch-text-left" 
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: { opacity: [0, 1, 1, 0], scale: [0.8, 1, 1, 1.2], transition: { duration: 3, times: [0, 0.2, 0.8, 1], delay: 0.5 } }
+          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4 text-[10vw] md:text-[7vw] font-sans font-black text-white uppercase tracking-tighter leading-none pointer-events-none glitch-text-left" 
           style={{ textShadow: '6px 6px 0px #000' }}
           data-glitch="WE DON'T SLEEP."
         >
@@ -69,11 +69,11 @@ export function TheManifesto() {
         </motion.h2>
 
         <motion.h2 
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: [0, 1, 1, 0], scale: [0.8, 1, 1, 1.2] }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 3, times: [0, 0.2, 0.8, 1], delay: 3.2 }}
-          className="absolute w-full px-4 text-[8vw] md:text-[5.5vw] font-sans font-black text-cyan-400 uppercase tracking-tighter leading-none pointer-events-none glitch-text-right" 
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: { opacity: [0, 1, 1, 0], scale: [0.8, 1, 1, 1.2], transition: { duration: 3, times: [0, 0.2, 0.8, 1], delay: 3.2 } }
+          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4 text-[8vw] md:text-[5.5vw] font-sans font-black text-cyan-400 uppercase tracking-tighter leading-none pointer-events-none glitch-text-right" 
           style={{ textShadow: '6px 6px 0px #ec4899' }}
           data-glitch="WE ARE THE RESISTANCE."
         >
@@ -81,11 +81,11 @@ export function TheManifesto() {
         </motion.h2>
 
         <motion.h2 
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: [0, 1, 1, 0], scale: [0.8, 1, 1, 1.2] }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 3, times: [0, 0.2, 0.8, 1], delay: 5.9 }}
-          className="absolute w-full px-4 text-[12vw] md:text-[8vw] font-sans font-black text-white uppercase tracking-tighter leading-none pointer-events-none glitch-text-left" 
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: { opacity: [0, 1, 1, 0], scale: [0.8, 1, 1, 1.2], transition: { duration: 3, times: [0, 0.2, 0.8, 1], delay: 5.9 } }
+          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4 text-[12vw] md:text-[8vw] font-sans font-black text-white uppercase tracking-tighter leading-none pointer-events-none glitch-text-left" 
           style={{ textShadow: '8px 8px 0px #000' }}
           data-glitch="WE ARE REBELS!"
         >
@@ -94,17 +94,17 @@ export function TheManifesto() {
 
         {/* Final Logo and Button */}
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 8.5, type: "spring", bounce: 0.5 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-col items-center z-20"
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 8.5, type: "spring", bounce: 0.5 } }
+          }}
+          className="flex flex-col items-center z-20 w-full -mt-48 md:-mt-72"
         >
-          <img src={premium.src} alt="Rebels Skull" className="w-48 h-48 md:w-64 md:h-64 object-contain mb-8 drop-shadow-[8px_8px_0px_#db2777]" />
+          <img src={logoImg.src} alt="Rebels Energy Glitch Logo" className="w-80 h-80 md:w-[500px] md:h-[500px] object-contain mb-12 drop-shadow-[0_0_40px_rgba(236,72,153,0.8)] hover:scale-105 transition-transform duration-500" />
           
           <button 
             onClick={() => toggleCart(true)}
-            className="px-12 py-6 rounded-full bg-black text-cyan-400 border-4 border-cyan-400 font-black uppercase tracking-widest text-2xl shadow-[8px_8px_0px_#ec4899] hover:shadow-[0px_0px_0px_#ec4899] hover:translate-y-[8px] hover:translate-x-[8px] transition-all duration-300"
+            className="px-10 py-4 md:px-14 md:py-6 bg-accent-500 text-black border-4 border-black font-sans font-black uppercase tracking-tighter text-3xl md:text-5xl shadow-[8px_8px_0px_#000] transform -rotate-2 hover:-rotate-1 hover:shadow-[2px_2px_0px_#000] hover:translate-y-[6px] hover:translate-x-[6px] transition-all duration-300"
           >
             Join The Cult
           </button>

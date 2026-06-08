@@ -177,7 +177,7 @@ export function TheLineup() {
                   </span>
                 </motion.h2>
 
-                <div className="bg-surface-900 border-4 border-black shadow-[8px_8px_0px_#000] p-6 md:p-8 rounded-[24px] mb-8">
+                <div className="bg-surface-900 border-4 border-black shadow-[8px_8px_0px_#000] p-6 md:p-8 rounded-none mb-8 transform -rotate-1">
                   <p className="text-white/90 font-sans text-lg md:text-xl font-bold leading-relaxed mb-6">
                     {selectedEnergy.description}
                   </p>
@@ -209,7 +209,7 @@ export function TheLineup() {
                     });
                     toggleCart(true);
                   }}
-                  className={`${selectedEnergy.solidBg} text-black border-4 border-black shadow-[6px_6px_0px_#000] font-black uppercase tracking-widest text-lg py-4 px-8 rounded-[16px] hover:shadow-[2px_2px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px] transition-all`}
+                  className={`${selectedEnergy.solidBg} text-black border-4 border-black shadow-[6px_6px_0px_#000] font-black uppercase tracking-widest text-lg py-4 px-8 rounded-none transform rotate-1 hover:rotate-0 hover:shadow-[2px_2px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px] transition-all`}
                 >
                   Claim Power
                 </motion.button>
@@ -239,9 +239,10 @@ export function TheLineup() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {energies.map((energy) => {
+          {energies.map((energy, index) => {
             const isSelected = selectedId === energy.id;
             const isAnySelected = selectedId !== null;
+            const rotationClass = ["-rotate-1", "rotate-1", "-rotate-2", "rotate-2"][index % 4];
 
             return (
               <motion.div 
@@ -255,10 +256,10 @@ export function TheLineup() {
                 }}
                 transition={{ duration: 0.4 }}
                 onClick={() => setSelectedId(energy.id)}
-                className={`group relative flex flex-col items-center ${energy.solidBg} rounded-[32px] p-6 pt-12 pb-8 border-4 border-black shadow-[12px_12px_0px_#000] hover:shadow-[4px_4px_0px_#000] hover:translate-x-[8px] hover:translate-y-[8px] transition-all duration-300 cursor-pointer overflow-hidden ${isSelected ? 'pointer-events-none' : ''}`}
+                className={`group relative flex flex-col items-center ${energy.solidBg} rounded-none p-6 pt-12 pb-8 border-4 border-black shadow-[12px_12px_0px_#000] transform ${rotationClass} hover:rotate-0 hover:shadow-[4px_4px_0px_#000] hover:translate-x-[8px] hover:translate-y-[8px] transition-all duration-300 cursor-pointer overflow-hidden ${isSelected ? 'pointer-events-none' : ''}`}
               >
                 {/* Borda tracejada interna */}
-                <div className="absolute inset-2 border-2 border-dashed border-black/30 rounded-[20px] pointer-events-none transition-colors duration-500 group-hover:border-black/50" />
+                <div className="absolute inset-2 border-2 border-dashed border-black/30 rounded-none pointer-events-none transition-colors duration-500 group-hover:border-black/50" />
 
               {/* Título */}
               <div className="text-center z-10 w-full mb-8 relative">

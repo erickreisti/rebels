@@ -133,10 +133,10 @@ export function Formula() {
         <div className="flex justify-center w-full">
           <motion.button
             onClick={() => toggleCart(true)}
-            className="inline-flex items-center space-x-4 px-12 py-6 bg-pink-500 text-black font-black uppercase tracking-widest text-2xl border-4 border-black shadow-[12px_12px_0px_#000] hover:shadow-[4px_4px_0px_#000] hover:translate-x-[8px] hover:translate-y-[8px] transition-all"
+            className="inline-flex items-center space-x-4 px-10 py-4 md:px-14 md:py-6 bg-pink-500 text-black border-4 border-black font-sans font-black uppercase tracking-tighter text-3xl md:text-5xl shadow-[8px_8px_0px_#000] transform -rotate-2 hover:-rotate-1 hover:shadow-[2px_2px_0px_#000] hover:translate-y-[6px] hover:translate-x-[6px] transition-all duration-300"
           >
             <span>Join The Elite</span>
-            <FiChevronDown className="w-8 h-8 transform -rotate-90" />
+            <FiChevronDown className="w-8 h-8 md:w-10 md:h-10 transform -rotate-90" />
           </motion.button>
         </div>
 

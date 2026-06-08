@@ -256,20 +256,14 @@ export function Hero() {
               <motion.a
                 key={`btn-${activeIndex}`}
                 href="#catalog"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                animate={phase === "impact" ? { 
-                  boxShadow: ["0px 0px 20px rgba(245,168,24,0.4)", "0px 0px 60px rgba(236,72,153,0.8)", "0px 0px 20px rgba(245,168,24,0.4)"] 
-                } : {}}
-                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                className={`group relative inline-flex items-center gap-4 bg-linear-to-r from-surface-800 ${HERO_PRODUCTS[activeIndex].halo} text-white px-8 py-4 md:px-12 md:py-6 rounded-full font-sans font-black uppercase tracking-widest text-sm md:text-xl overflow-hidden`}
+                className={`group relative inline-flex items-center gap-4 bg-linear-to-r from-surface-800 ${HERO_PRODUCTS[activeIndex].halo} text-white px-8 py-4 md:px-12 md:py-6 border-4 border-black font-sans font-black uppercase tracking-widest text-lg md:text-2xl shadow-[8px_8px_0px_#000] transform -rotate-2 hover:-rotate-1 hover:shadow-[4px_4px_0px_#000] hover:translate-y-[4px] hover:translate-x-[4px] transition-all duration-300 overflow-hidden`}
               >
                 {/* Feixe de Luz (Shimmer) no Hover */}
                 <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/30 to-transparent group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                 
                 <span className="relative z-10 drop-shadow-md">{content.btn}</span>
                 
-                <div className={`relative z-10 bg-white ${content.dot} p-2 md:p-2.5 rounded-full group-hover:bg-primary-900 group-hover:text-accent-500 transition-colors shrink-0 shadow-lg`}>
+                <div className={`relative z-10 bg-white ${content.dot} p-2 md:p-2.5 border-2 border-black group-hover:bg-primary-900 group-hover:text-accent-500 transition-colors shrink-0 shadow-[2px_2px_0px_#000]`}>
                   <FiArrowDownRight className="w-5 h-5 md:w-7 md:h-7 group-hover:-rotate-45 transition-transform duration-300" />
                 </div>
               </motion.a>
