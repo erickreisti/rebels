@@ -153,7 +153,7 @@ export function TheLineup() {
                   layoutId={`can-${selectedEnergy.id}`}
                   src={selectedEnergy.image} 
                   alt={selectedEnergy.line1}
-                  className="h-[400px] md:h-[600px] object-contain drop-shadow-[0_0_50px_rgba(0,0,0,0.8)]"
+                  className="w-auto h-[400px] md:h-[600px] object-contain drop-shadow-[0_0_50px_rgba(0,0,0,0.8)]"
                 />
               </motion.div>
 
@@ -269,7 +269,7 @@ export function TheLineup() {
                   layoutId={`can-${energy.id}`}
                   src={energy.image} 
                   alt={`${energy.line1} ${energy.line2}`}
-                  className="h-[280px] md:h-[320px] object-contain"
+                  className="w-auto h-[280px] md:h-[320px] object-contain"
                   style={{ filter: `drop-shadow(15px 15px 0px rgba(0,0,0,0.6))` }}
                 />
               </motion.div>

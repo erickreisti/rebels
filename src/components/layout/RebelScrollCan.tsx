@@ -9,7 +9,6 @@ import imgUltraCyber from "../../assets/images/can-ultra-cyber.png";
 import imgNeonCitrus from "../../assets/images/can-neon-citrus.png";
 import imgQuantumBlue from "../../assets/images/can-quantum-blue.png";
 import imgInfernoRed from "../../assets/images/can-inferno-red.png";
-import imgWingedSkullOrange from "../../assets/images/winged-skull-orange.png";
 import { FiRefreshCw } from "react-icons/fi";
 
 export const HeroPhaseContext = createContext<string>("glitch");
