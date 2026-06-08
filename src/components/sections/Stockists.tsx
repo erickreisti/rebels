@@ -1,85 +1,76 @@
 "use client";
 import { motion } from "framer-motion";
-import {
-  FaMapMarkerAlt,
-  FaWhatsapp,
-  FaTwitter,
-  FaInstagram,
-} from "react-icons/fa"; // REMOVIDO FaPhone
+import { FaMapMarkerAlt, FaDiscord, FaTwitch, FaTwitter } from "react-icons/fa";
 
 export function Stockists() {
   return (
-    <section id="locale" className="section bg-primary-100 relative min-h-screen flex flex-col justify-center w-full py-24 border-y-4 border-black">
-      <div className="container mx-auto px-4 w-full z-10 relative">
-        <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-8xl font-sans font-black text-black uppercase tracking-tighter drop-shadow-[4px_4px_0px_#db2777]">Stockists</h2>
-          <h3 className="text-2xl md:text-4xl font-sans font-bold text-white border-2 border-black bg-black inline-block px-4 py-2 shadow-[4px_4px_0px_#db2777] transform rotate-1 mt-4">find our wines near you</h3>
+    <section id="locale" className="section bg-black relative w-full py-24 border-y-4 border-white">
+      <div className="container mx-auto px-4 w-full">
+        {/* Title */}
+        <div className="mb-16 border-b-4 border-white/20 pb-8">
+          <h2 className="text-5xl md:text-7xl font-sans font-black text-white uppercase tracking-tighter drop-shadow-[4px_4px_0px_#f5a818]">
+            Supply Drops
+          </h2>
+          <h3 className="text-xl md:text-2xl font-sans font-black text-black bg-white inline-block px-4 py-2 shadow-[4px_4px_0px_#fff] transform rotate-1 mt-6 uppercase tracking-widest">
+            Find your nearest dealer
+          </h3>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Map */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          {/* Location Info */}
           <motion.div
-            className="flex justify-center"
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="space-y-12"
           >
-            <div className="relative">
-              <div className="bg-white border-4 border-black p-8 w-64 h-64 flex items-center justify-center shadow-[16px_16px_0px_#000] transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-                <FaMapMarkerAlt className="w-24 h-24 text-pink-500 drop-shadow-[4px_4px_0px_#000]" />
+            <address className="not-italic space-y-8 font-sans font-black uppercase text-white">
+              <div className="bg-neutral-900 border-4 border-white p-8 shadow-[8px_8px_0px_#ec4899] hover:shadow-[12px_12px_0px_#ec4899] transition-all transform hover:-translate-y-1">
+                <span className="text-pink-500 text-lg tracking-widest block mb-2">HQ / Main Drop</span>
+                <p className="text-4xl md:text-5xl leading-none">Sector 7, Neo-Tokyo</p>
+                <div className="mt-6 flex items-center space-x-2 text-white/60 text-sm">
+                  <FaMapMarkerAlt /> <span>Offline / Invite Only</span>
+                </div>
               </div>
-              <div className="absolute -bottom-8 -right-8 bg-accent-500 w-24 h-24 border-4 border-black rounded-full flex items-center justify-center shadow-[8px_8px_0px_#000] z-20">
-                <div className="w-8 h-8 bg-black rounded-full animate-pulse"></div>
+              
+              <div className="bg-neutral-900 border-4 border-white p-8 shadow-[8px_8px_0px_#22d3ee] hover:shadow-[12px_12px_0px_#22d3ee] transition-all transform hover:-translate-y-1">
+                <span className="text-cyan-400 text-lg tracking-widest block mb-2">Underground Vault</span>
+                <p className="text-4xl md:text-5xl leading-none">The Grid, Level 42</p>
+                <div className="mt-6 flex items-center space-x-2 text-white/60 text-sm">
+                  <FaMapMarkerAlt /> <span>Requires Access Code</span>
+                </div>
               </div>
-            </div>
+            </address>
           </motion.div>
 
-          {/* Info */}
+          {/* Comms & Socials */}
           <motion.div
-            className="text-center lg:text-left"
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
+            className="lg:pl-12 border-l-0 lg:border-l-4 border-white/20 pt-12 lg:pt-0"
           >
-            <div className="space-y-8 bg-white border-4 border-black p-8 shadow-[12px_12px_0px_#000]">
-              <address className="not-italic space-y-3 font-sans font-black uppercase tracking-tighter">
-                <p className="text-3xl text-black">
-                  93, place to Tanguy
-                </p>
-                <p className="text-3xl text-black">
-                  Langlois, France
-                </p>
-                <p className="text-3xl text-pink-500 bg-black inline-block px-2">
-                  320-574-1496
-                </p>
-              </address>
+            <div className="mb-12">
+              <h4 className="text-white font-black uppercase text-2xl tracking-widest mb-6">Comms Channel</h4>
+              <p className="text-2xl text-black bg-accent-500 inline-block px-6 py-4 border-4 border-white shadow-[6px_6px_0px_#fff] font-black transform -rotate-1 hover:rotate-0 transition-transform">
+                +99 (0) 800-CYBER
+              </p>
+            </div>
 
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-8 border-t-4 border-black mt-8">
-                <motion.a
-                  href="#"
-                  className="flex items-center justify-center w-16 h-16 bg-accent-500 border-4 border-black text-black hover:bg-white shadow-[6px_6px_0px_#000] hover:shadow-[0px_0px_0px_#000] hover:translate-x-[6px] hover:translate-y-[6px] transition-all"
-                  aria-label="WhatsApp"
-                >
-                  <FaWhatsapp className="w-8 h-8" />
-                </motion.a>
-
-                <motion.a
-                  href="#"
-                  className="flex items-center justify-center w-16 h-16 bg-pink-500 border-4 border-black text-black hover:bg-white shadow-[6px_6px_0px_#000] hover:shadow-[0px_0px_0px_#000] hover:translate-x-[6px] hover:translate-y-[6px] transition-all"
-                  aria-label="Twitter"
-                >
+            <div>
+              <h4 className="text-white font-black uppercase text-2xl tracking-widest mb-6">Network</h4>
+              <div className="flex flex-wrap gap-4">
+                <a href="#" className="flex items-center justify-center w-16 h-16 bg-black border-4 border-white text-white hover:bg-pink-500 hover:text-black hover:border-pink-500 shadow-[4px_4px_0px_#fff] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <FaTwitch className="w-8 h-8" />
+                </a>
+                <a href="#" className="flex items-center justify-center w-16 h-16 bg-black border-4 border-white text-white hover:bg-cyan-400 hover:text-black hover:border-cyan-400 shadow-[4px_4px_0px_#fff] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
                   <FaTwitter className="w-8 h-8" />
-                </motion.a>
-
-                <motion.a
-                  href="#"
-                  className="flex items-center justify-center w-16 h-16 bg-cyan-400 border-4 border-black text-black hover:bg-white shadow-[6px_6px_0px_#000] hover:shadow-[0px_0px_0px_#000] hover:translate-x-[6px] hover:translate-y-[6px] transition-all"
-                  aria-label="Instagram"
-                >
-                  <FaInstagram className="w-8 h-8" />
-                </motion.a>
+                </a>
+                <a href="#" className="flex items-center justify-center w-16 h-16 bg-black border-4 border-white text-white hover:bg-accent-500 hover:text-black hover:border-accent-500 shadow-[4px_4px_0px_#fff] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+                  <FaDiscord className="w-8 h-8" />
+                </a>
               </div>
             </div>
           </motion.div>

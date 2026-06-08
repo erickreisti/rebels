@@ -1,91 +1,90 @@
 "use client";
 import { motion } from "framer-motion";
 
-const blogPosts = [
+const reviews = [
   {
     id: "1",
-    title: "How to introduce wine to parties",
-    author: {
-      name: "Helen Page",
-      role: "Event Promoter",
-      avatar: "https://i.pravatar.cc/150?img=47",
-    },
-    image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1000&auto=format&fit=crop",
-    excerpt:
-      "Learn the best techniques to make wine the star of your next party...",
+    name: "Alex 'Nightrider'",
+    role: "Pro Gamer",
+    avatar: "https://i.pravatar.cc/150?img=11",
+    rating: 5,
+    text: "This is the only thing that keeps me awake during 12-hour streams. The Zero Sugar actually works and I don't feel like garbage the next day. Pure fuel.",
   },
   {
     id: "2",
-    title: "Can chocolate? he can!",
-    author: {
-      name: "Zlatan Hammet",
-      role: "Product Designer",
-      avatar: "https://i.pravatar.cc/150?img=11",
-    },
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop",
-    excerpt:
-      "Discover the perfect wine and chocolate pairings that will elevate your experience...",
+    name: "Sarah J.",
+    role: "Software Engineer",
+    avatar: "https://i.pravatar.cc/150?img=47",
+    rating: 5,
+    text: "Neural Focus is no joke. I drank one before a massive deployment and I felt like I could see the matrix. The taste is incredibly sharp too.",
   },
+  {
+    id: "3",
+    name: "Marcus T.",
+    role: "DJ / Producer",
+    avatar: "https://i.pravatar.cc/150?img=33",
+    rating: 5,
+    text: "Replaced my usual pre-set drink. Extreme Taurine gives me a ridiculous kick that lasts the whole set. Plus, the can looks sick on the decks.",
+  },
+  {
+    id: "4",
+    name: "Zoe Blade",
+    role: "Cyber Athlete",
+    avatar: "https://i.pravatar.cc/150?img=12",
+    rating: 5,
+    text: "Tastes like battery acid in the best way possible. 10/10 would drink before a street race again.",
+  }
 ];
 
 export function Drops() {
   return (
-    <section id="blog" className="section bg-cyan-400 relative overflow-hidden min-h-screen flex flex-col justify-center w-full py-24 border-y-4 border-black">
-      {/* Background glitch effect */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')" }}></div>
-      
-      <div className="container mx-auto px-4 w-full relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-8xl font-sans font-black text-black uppercase tracking-tighter drop-shadow-[4px_4px_0px_#fff]">Drops</h2>
-          <h3 className="text-2xl md:text-4xl font-sans font-bold text-black border-2 border-black bg-accent-500 inline-block px-4 py-2 shadow-[4px_4px_0px_#000] transform -rotate-2 mt-4">news and curiosities</h3>
+    <section id="blog" className="section bg-neutral-900 relative w-full py-24 border-y-4 border-black">
+      <div className="container mx-auto px-4 w-full">
+        {/* Title */}
+        <div className="mb-16 border-b-4 border-white/20 pb-8">
+          <h2 className="text-5xl md:text-7xl font-sans font-black text-white uppercase tracking-tighter drop-shadow-[4px_4px_0px_#ec4899]">
+            The Cult
+          </h2>
+          <h3 className="text-xl md:text-2xl font-sans font-black text-black bg-white inline-block px-4 py-2 shadow-[4px_4px_0px_#fff] transform -rotate-1 mt-6 uppercase tracking-widest">
+            What the elite says
+          </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {blogPosts.map((post, index) => (
+        {/* Clean Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {reviews.map((review, index) => (
             <motion.article
-              key={post.id}
-              className="bg-white rounded-none overflow-hidden border-4 border-black shadow-[12px_12px_0px_#000] hover:shadow-[16px_16px_0px_#000] transition-all cursor-pointer group"
-              initial={{ opacity: 0, y: 50 }}
+              key={review.id}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1, type: "spring", bounce: 0.5 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              whileHover={{ y: -8, x: -4 }}
+              className="bg-black text-white p-8 border-4 border-white shadow-[8px_8px_0px_#222] hover:shadow-[8px_8px_0px_#ec4899] transition-shadow flex flex-col"
             >
-              <div className="pt-8"></div>
+              <div className="flex gap-1 mb-6 text-cyan-400">
+                {[...Array(review.rating)].map((_, i) => (
+                  <svg key={i} className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
 
-              {/* Author */}
-              <div className="flex items-center space-x-4 px-8 py-4">
+              <p className="font-sans font-bold text-xl leading-relaxed mb-8 flex-1">
+                "{review.text}"
+              </p>
+
+              <div className="flex items-center space-x-4 border-t-4 border-white/20 pt-6">
                 <img
-                  src={post.author.avatar}
-                  alt={post.author.name}
-                  className="w-16 h-16 rounded-full object-cover border-4 border-black shadow-[4px_4px_0px_#000]"
+                  src={review.avatar}
+                  alt={review.name}
+                  className="w-14 h-14 rounded-full border-2 border-white grayscale"
                 />
                 <div>
-                  <h4 className="font-sans font-black tracking-tight text-black text-xl">
-                    {post.author.name}
+                  <h4 className="font-sans font-black text-xl uppercase">
+                    {review.name}
                   </h4>
-                  <p className="text-pink-500 font-sans font-bold text-sm uppercase tracking-wider">{post.author.role}</p>
+                  <p className="text-white/60 font-sans font-bold text-sm uppercase tracking-widest">{review.role}</p>
                 </div>
-              </div>
-
-              {/* Image - IMAGEM CENTRAL */}
-              <div className="px-4 pb-4">
-                <div className="border-4 border-black overflow-hidden relative">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="px-8 pb-8 pt-4">
-                <h3 className="text-3xl font-sans font-black text-black mb-3 tracking-tighter uppercase leading-none">
-                  {post.title}
-                </h3>
-                <p className="text-black font-medium font-sans leading-relaxed text-lg border-t-4 border-black pt-4">{post.excerpt}</p>
               </div>
             </motion.article>
           ))}
