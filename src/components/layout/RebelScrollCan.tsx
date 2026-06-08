@@ -27,7 +27,7 @@ export const HERO_PRODUCTS = [
 ];
 
 // ── Vídeo com crossfade seamless (sem solavanco no loop) ──
-const VIDEO_SRC = "/nightclub-bg.mp4";
+const VIDEO_SRC = "/mixer.mp4";
 const VIDEO_STYLE: React.CSSProperties = {
   filter: "brightness(0.40) saturate(1.8) hue-rotate(-10deg)",
   transition: "opacity 1.5s ease-in-out",

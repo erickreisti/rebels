@@ -48,7 +48,7 @@ export function TheManifesto() {
           className="w-full h-full object-cover opacity-50"
           style={{ filter: 'grayscale(30%) contrast(120%)' }}
         >
-          <source src="/mixer.mp4" type="video/mp4" />
+          <source src="/nightclub-bg.mp4" type="video/mp4" />
         </video>
       </motion.div>
       
