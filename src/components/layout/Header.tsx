@@ -45,7 +45,7 @@ export function Header() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.5, type: "spring", stiffness: 80 }}
-        className={`fixed w-full z-[100] transition-all duration-300 ${
+        className={`fixed w-full z-100 transition-all duration-300 ${
           scrolled
             ? "bg-transparent py-4" 
             : "bg-transparent py-2"
@@ -119,7 +119,7 @@ export function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-black z-[100] flex flex-col overflow-y-auto"
+            className="fixed inset-0 bg-black z-100 flex flex-col overflow-y-auto"
             onWheel={(e) => {
               if (e.deltaY > 0) {
                 setActiveMenuIdx((prev) => Math.min(prev + 1, navItems.length - 1));
