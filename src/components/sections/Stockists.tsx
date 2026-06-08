@@ -53,14 +53,14 @@ export function Stockists() {
             className="lg:pl-12 border-l-0 lg:border-l-4 border-white/20 pt-12 lg:pt-0"
           >
             <div className="mb-12">
-              <h4 className="text-white font-black uppercase text-2xl tracking-widest mb-6">Comms Channel</h4>
-              <p className="text-2xl text-black bg-accent-500 inline-block px-6 py-4 border-4 border-white shadow-[6px_6px_0px_#fff] font-black transform -rotate-1 hover:rotate-0 transition-transform">
+              <h4 className="font-sans font-black uppercase text-2xl tracking-widest mb-6 text-pink-500">Comms Channel</h4>
+              <p className="font-sans text-2xl text-black bg-accent-500 inline-block px-6 py-4 border-4 border-white shadow-[6px_6px_0px_#fff] font-black transform -rotate-1 hover:rotate-0 transition-transform">
                 +99 (0) 800-CYBER
               </p>
             </div>
 
             <div>
-              <h4 className="text-white font-black uppercase text-2xl tracking-widest mb-6">Network</h4>
+              <h4 className="font-sans font-black uppercase text-2xl tracking-widest mb-6 text-cyan-400">Network</h4>
               <div className="flex flex-wrap gap-4">
                 <a href="#" className="flex items-center justify-center w-16 h-16 bg-black border-4 border-white text-white hover:bg-pink-500 hover:text-black hover:border-pink-500 shadow-[4px_4px_0px_#fff] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
                   <FaTwitch className="w-8 h-8" />

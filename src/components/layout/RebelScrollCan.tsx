@@ -7,6 +7,7 @@ import imgNeonCitrus from "../../assets/images/can-neon-citrus.png";
 import imgQuantumBlue from "../../assets/images/can-quantum-blue.png";
 import imgInfernoRed from "../../assets/images/can-inferno-red.png";
 import imgWingedSkullOrange from "../../assets/images/winged-skull-orange.png";
+import { FiRefreshCw } from "react-icons/fi";
 
 export const HeroPhaseContext = createContext<string>("glitch");
 export const MouseContext = createContext({ mouseX: 0, mouseY: 0 });
@@ -305,12 +306,20 @@ export function RebelScrollCan({ children }: { children: React.ReactNode }) {
               onClick={() => setActiveIndex((prev) => (prev + 1) % HERO_PRODUCTS.length)}
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
-              animate={{ scale: [1, 1.15, 1] }}
-              transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
-              className="text-white hover:text-accent-500 transition-colors cursor-pointer pointer-events-auto z-50 flex flex-col items-center justify-center select-none"
+              animate={{ scale: [1, 1.15, 1], rotate: [0, 180, 360] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
+              className="text-white hover:text-accent-500 transition-colors cursor-pointer pointer-events-auto z-50 flex flex-col items-center justify-center select-none drop-shadow-[0_0_8px_rgba(245,168,24,0.6)]"
               style={{ WebkitTapHighlightColor: 'transparent' }}
             >
-              <img src={imgWingedSkullOrange.src} alt="Winged Skull Logo" className="w-12 h-12 md:w-16 md:h-16 object-cover mix-blend-screen scale-125 select-none pointer-events-none" style={{ clipPath: 'circle(35%)' }} draggable="false" />
+              <svg width="0" height="0" className="absolute">
+                <defs>
+                  <linearGradient id="switch-neon" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#ec4899" />
+                    <stop offset="100%" stopColor="#f5a818" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <FiRefreshCw className="w-8 h-8 md:w-10 md:h-10" style={{ stroke: 'url(#switch-neon)', strokeWidth: '2.5' }} />
             </motion.div>
             <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-accent-500/80 pointer-events-none drop-shadow-sm mt-2">
               Switch
