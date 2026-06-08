@@ -13,9 +13,9 @@ const HERO_CONTENT = [
 ];
 
 const STATS = [
-  { value: "500MG",   label: "Taurina Extrema", code: "TR-01" },
-  { value: "ZERO Ø",  label: "Sem Açúcar · Sem Crash", code: "ZR-00" },
-  { value: "B12+B6",  label: "Foco Neural", code: "FN-99" },
+  { value: "500MG",   label: "Extreme Taurine", code: "TR-01" },
+  { value: "ZERO Ø",  label: "Zero Sugar · No Crash", code: "ZR-00" },
+  { value: "B12+B6",  label: "Neural Focus", code: "FN-99" },
 ];
 
 const GlitchStats = ({ active }: { active: boolean }) => {

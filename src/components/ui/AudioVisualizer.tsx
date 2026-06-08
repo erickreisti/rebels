@@ -135,7 +135,7 @@ export function AudioVisualizer({ audioRef, isPlaying, onClick }: AudioVisualize
   return (
     <button 
       onClick={onClick}
-      title={isPlaying ? "Pausar Áudio" : "Tocar Áudio"}
+      title={isPlaying ? "Pause Audio" : "Play Audio"}
       className={`relative group flex items-center justify-center h-10 md:h-12 w-28 md:w-36 cursor-pointer outline-hidden focus:outline-none focus:ring-0 border-none bg-transparent transition-opacity duration-500 ${isPlaying ? "opacity-100" : "opacity-80 hover:opacity-100"}`}
     >
       {/* Aviso visual pulsante para o usuário clicar na onda */}

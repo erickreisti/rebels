@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 
-export function About() {
+export function TheVibe() {
   return (
     <section id="about" className="section bg-surface-900 relative overflow-hidden min-h-screen flex flex-col items-center justify-center w-full pt-32 pb-24">
       {/* Background Glow Cyberpunk */}
@@ -24,10 +24,10 @@ export function About() {
               <div className="hidden lg:block absolute top-1/2 left-[98%] w-[12vw] xl:w-[15vw] h-[6px] bg-black -z-10 -translate-y-1/2" />
 
               <h4 className="text-2xl font-sans font-black text-black mb-3 uppercase tracking-tighter" style={{ textShadow: '2px 2px 0px rgba(0,0,0,0.1)' }}>
-                Taurina Extrema
+                Extreme Taurine
               </h4>
               <p className="text-black font-sans font-bold text-sm leading-relaxed opacity-95">
-                Para energia explosiva instantânea. Nossa dose é milimetricamente calculada para dar o máximo de arranque quando o jogo vira e você mais precisa.
+                For instant explosive energy. Our dose is precisely calculated to give you maximum thrust when the game turns and you need it most.
               </p>
             </div>
           </motion.div>
@@ -46,10 +46,10 @@ export function About() {
               <div className="hidden lg:block absolute top-1/2 left-[98%] w-[10vw] xl:w-[13vw] h-[6px] bg-black -z-10 -translate-y-1/2" />
 
               <h4 className="text-2xl font-sans font-black text-black mb-3 uppercase tracking-tighter" style={{ textShadow: '2px 2px 0px rgba(0,0,0,0.1)' }}>
-                Zero Açúcar
+                Zero Sugar
               </h4>
               <p className="text-black font-sans font-bold text-sm leading-relaxed opacity-95">
-                Sem "crash" no final da partida. Toda a potência sem o cansaço que o açúcar traz. Uma onda de energia limpa, constante e que dura a noite inteira.
+                No crash at the end of the match. All the power without the fatigue that sugar brings. A wave of clean, constant energy that lasts the entire night.
               </p>
             </div>
           </motion.div>
@@ -68,10 +68,10 @@ export function About() {
               <div className="hidden lg:block absolute top-1/2 right-[98%] w-[12vw] xl:w-[15vw] h-[6px] bg-black -z-10 -translate-y-1/2" />
 
               <h4 className="text-2xl font-sans font-black text-black mb-3 uppercase tracking-tighter" style={{ textShadow: '2px 2px 0px rgba(0,0,0,0.1)' }}>
-                Foco Neural
+                Neural Focus
               </h4>
               <p className="text-black font-sans font-bold text-sm leading-relaxed opacity-95">
-                Vitaminas B12 e B6 em um complexo otimizado para a mente. Desenvolvido especialmente para gamers e devs que não podem se dar ao luxo de piscar.
+                Vitamins B12 and B6 in a complex optimized for the mind. Specially developed for gamers and devs who can't afford to blink.
               </p>
             </div>
           </motion.div>

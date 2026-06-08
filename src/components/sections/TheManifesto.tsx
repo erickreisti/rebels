@@ -1,0 +1,116 @@
+"use client";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useCart } from "../../context/CartContext";
+import premium from "../../assets/images/winged-skull-red.png";
+
+export function TheManifesto() {
+  const { toggleCart } = useCart();
+  
+  // Parallax do Manifesto
+  const manifestoRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: manifestoRef,
+    offset: ["start end", "end start"]
+  });
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+
+  return (
+    <motion.section 
+      ref={manifestoRef} 
+      className="relative min-h-screen border-y-4 border-black bg-black"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <motion.div 
+        className="absolute inset-0 flex items-center justify-center overflow-hidden"
+        variants={{
+          hidden: { clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)' },
+          visible: { 
+            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+            transition: { duration: 1.2, ease: [0.85, 0, 0.15, 1] }
+          }
+        }}
+      >
+        {/* Vídeo de Fundo com Parallax */}
+        <motion.div 
+          className="absolute left-0 w-full h-[140%] top-[-20%] z-0"
+        style={{ y: backgroundY }}
+      >
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="w-full h-full object-cover opacity-50"
+          style={{ filter: 'grayscale(30%) contrast(120%)' }}
+        >
+          <source src="/mixer.mp4" type="video/mp4" />
+        </video>
+      </motion.div>
+      
+      {/* Overlay Escuro para o vídeo (Substitui o overlay rosa) */}
+      <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/40 to-black/90 z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none z-0" />
+
+      {/* Conteúdo do Manifesto (Sequência em Inglês) */}
+      <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center text-center min-h-[60vh] py-20">
+        <motion.h2 
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: [0, 1, 1, 0], scale: [0.8, 1, 1, 1.2] }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 3, times: [0, 0.2, 0.8, 1], delay: 0.5 }}
+          className="absolute w-full px-4 text-[10vw] md:text-[7vw] font-sans font-black text-white uppercase tracking-tighter leading-none pointer-events-none glitch-text-left" 
+          style={{ textShadow: '6px 6px 0px #000' }}
+          data-glitch="WE DON'T SLEEP."
+        >
+          WE DON'T SLEEP.
+        </motion.h2>
+
+        <motion.h2 
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: [0, 1, 1, 0], scale: [0.8, 1, 1, 1.2] }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 3, times: [0, 0.2, 0.8, 1], delay: 3.2 }}
+          className="absolute w-full px-4 text-[8vw] md:text-[5.5vw] font-sans font-black text-cyan-400 uppercase tracking-tighter leading-none pointer-events-none glitch-text-right" 
+          style={{ textShadow: '6px 6px 0px #ec4899' }}
+          data-glitch="WE ARE THE RESISTANCE."
+        >
+          WE ARE THE RESISTANCE.
+        </motion.h2>
+
+        <motion.h2 
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: [0, 1, 1, 0], scale: [0.8, 1, 1, 1.2] }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 3, times: [0, 0.2, 0.8, 1], delay: 5.9 }}
+          className="absolute w-full px-4 text-[12vw] md:text-[8vw] font-sans font-black text-white uppercase tracking-tighter leading-none pointer-events-none glitch-text-left" 
+          style={{ textShadow: '8px 8px 0px #000' }}
+          data-glitch="WE ARE REBELS!"
+        >
+          WE ARE REBELS!
+        </motion.h2>
+
+        {/* Final Logo and Button */}
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 8.5, type: "spring", bounce: 0.5 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex flex-col items-center z-20"
+        >
+          <img src={premium.src} alt="Rebels Skull" className="w-48 h-48 md:w-64 md:h-64 object-contain mb-8 drop-shadow-[8px_8px_0px_#db2777]" />
+          
+          <button 
+            onClick={() => toggleCart(true)}
+            className="px-12 py-6 rounded-full bg-black text-cyan-400 border-4 border-cyan-400 font-black uppercase tracking-widest text-2xl shadow-[8px_8px_0px_#ec4899] hover:shadow-[0px_0px_0px_#ec4899] hover:translate-y-[8px] hover:translate-x-[8px] transition-all duration-300"
+          >
+            Join The Cult
+          </button>
+        </motion.div>
+      </div>
+      </motion.div>
+    </motion.section>
+  );
+}

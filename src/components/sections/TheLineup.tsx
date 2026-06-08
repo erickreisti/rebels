@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCart } from "../../context/CartContext";
 import imgUltraCyber from "../../assets/images/can-ultra-cyber.png";
 import imgNeonCitrus from "../../assets/images/can-neon-citrus.png";
 import imgQuantumBlue from "../../assets/images/can-quantum-blue.png";
@@ -17,9 +18,9 @@ const energies = [
     id: "1",
     line1: "ULTRA",
     line2: "CYBER",
-    description: "A essência da noite na lata. Sabor de frutas silvestres com um toque cítrico elétrico.",
-    vibe: "Energia Bruta",
-    intensity: "Máxima",
+    description: "The essence of the night in a can. Wild berries flavor with an electric citrus touch.",
+    vibe: "Raw Energy",
+    intensity: "Maximum",
     image: imgUltraCyber,
     skullImage: skullPurple,
     solidBg: "bg-[#D946EF]", // Fuchsia/Pink
@@ -30,9 +31,9 @@ const energies = [
     id: "2",
     line1: "NEON",
     line2: "CITRUS",
-    description: "Explosão refrescante de limão e yuzu com fundo ácido. Para um reset gelado.",
-    vibe: "Fresco",
-    intensity: "Alta",
+    description: "Refreshing explosion of lime and yuzu with a sour background. For an icy reset.",
+    vibe: "Fresh",
+    intensity: "High",
     image: imgNeonCitrus,
     skullImage: skullGreen,
     solidBg: "bg-[#84CC16]", // Lime
@@ -43,9 +44,9 @@ const energies = [
     id: "3",
     line1: "QUANTUM",
     line2: "BLUE",
-    description: "Sabor de framboesa azul e blueberry. Suave no começo, intenso no final.",
-    vibe: "Misterioso",
-    intensity: "Constante",
+    description: "Blue raspberry and blueberry flavor. Smooth at first, intense at the end.",
+    vibe: "Mysterious",
+    intensity: "Constant",
     image: imgQuantumBlue,
     skullImage: skullBlue,
     solidBg: "bg-[#0EA5E9]", // Sky Blue
@@ -56,9 +57,9 @@ const energies = [
     id: "4",
     line1: "INFERNO",
     line2: "RED",
-    description: "O sabor mais quente: cereja picante e pitaya. Para dominar a noite.",
-    vibe: "Quente",
-    intensity: "Explosiva",
+    description: "The hottest flavor: spicy cherry and dragon fruit. To dominate the night.",
+    vibe: "Aggressive",
+    intensity: "Extreme",
     image: imgInfernoRed,
     skullImage: skullRed,
     solidBg: "bg-[#EF4444]", // Red
@@ -84,8 +85,9 @@ const cardVariants = {
   },
 };
 
-export function Catalog() {
+export function TheLineup() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const { addToCart, toggleCart } = useCart();
 
   const selectedEnergy = energies.find(e => e.id === selectedId);
 
@@ -129,7 +131,7 @@ export function Catalog() {
               <button 
                 onClick={() => setSelectedId(null)}
                 className="group flex flex-col items-center justify-center gap-2 text-white/50 hover:text-white transition-colors"
-                title="Retornar"
+                title="Return"
               >
                 <span className="flex items-center justify-center w-14 h-14 md:w-20 md:h-20 rounded-full border-2 border-white/30 group-hover:border-accent-500 group-hover:bg-accent-500 group-hover:text-black transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
@@ -137,7 +139,7 @@ export function Catalog() {
                     <polyline points="12 19 5 12 12 5"></polyline>
                   </svg>
                 </span>
-                <span className="font-sans font-bold uppercase tracking-widest text-xs md:text-sm">Retornar</span>
+                <span className="font-sans font-bold uppercase tracking-widest text-xs md:text-sm">RETURN</span>
               </button>
             </div>
 
@@ -186,7 +188,7 @@ export function Catalog() {
                       <span className="text-white font-bold text-lg">{selectedEnergy.vibe}</span>
                     </div>
                     <div>
-                      <span className="block text-xs text-white/50 uppercase tracking-widest font-black mb-1">Intensidade</span>
+                      <span className="block text-xs text-white/50 uppercase tracking-widest font-black mb-1">Intensity</span>
                       <span className="text-white font-bold text-lg">{selectedEnergy.intensity}</span>
                     </div>
                   </div>
@@ -195,9 +197,21 @@ export function Catalog() {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    addToCart({
+                      id: selectedEnergy.id,
+                      name: `${selectedEnergy.line1} ${selectedEnergy.line2}`,
+                      flavor: selectedEnergy.description.split('.')[0],
+                      price: 4.99,
+                      quantity: 1,
+                      image: selectedEnergy.image.src,
+                      color: selectedEnergy.hexColor
+                    });
+                    toggleCart(true);
+                  }}
                   className={`${selectedEnergy.solidBg} text-black border-4 border-black shadow-[6px_6px_0px_#000] font-black uppercase tracking-widest text-lg py-4 px-8 rounded-[16px] hover:shadow-[2px_2px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px] transition-all`}
                 >
-                  Reivindicar Poder
+                  Claim Power
                 </motion.button>
               </motion.div>
 

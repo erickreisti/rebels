@@ -154,6 +154,7 @@ const GlitchTransition = ({ scrollYProgress }: { scrollYProgress: any }) => {
 export function RebelScrollCan({ children }: { children: React.ReactNode }) {
   const [phase, setPhase] = useState("glitch");
   const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [mousePos, setMousePos] = useState({ mouseX: 0, mouseY: 0 });
   const [activeIndex, setActiveIndex] = useState(0);
   
@@ -182,8 +183,11 @@ export function RebelScrollCan({ children }: { children: React.ReactNode }) {
     const colors = ['#EC4899', '#A855F7', '#06B6D4', '#ffffff'];
     
     // Explosões de energia
-    confetti({ particleCount: 150, spread: 80, origin: { y: 0.65, x: 0.45 }, angle: 135, colors, startVelocity: 55, zIndex: 50, gravity: 0.9, scalar: 1.2 });
-    confetti({ particleCount: 150, spread: 80, origin: { y: 0.65, x: 0.55 }, angle: 45, colors, startVelocity: 55, zIndex: 50, gravity: 0.9, scalar: 1.2 });
+    if (canvasRef.current) {
+      const myConfetti = confetti.create(canvasRef.current, { resize: true, useWorker: true });
+      myConfetti({ particleCount: 150, spread: 80, origin: { y: 0.65, x: 0.45 }, angle: 135, colors, startVelocity: 55, zIndex: 50, gravity: 0.9, scalar: 1.2 });
+      myConfetti({ particleCount: 150, spread: 80, origin: { y: 0.65, x: 0.55 }, angle: 45, colors, startVelocity: 55, zIndex: 50, gravity: 0.9, scalar: 1.2 });
+    }
   };
 
   // Lógica de Scroll Rebelde (Sticky Parallax)
@@ -227,6 +231,9 @@ export function RebelScrollCan({ children }: { children: React.ReactNode }) {
         <div className="absolute inset-0 pointer-events-none z-40">
           <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
             
+            {/* Confetti Local Canvas */}
+            <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-50" />
+
             {/* Glitch de Transição Substituto do antigo Tubo de Luzes */}
             <GlitchTransition scrollYProgress={scrollYProgress} />
 

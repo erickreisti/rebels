@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 
 export function MarqueeDivider() {
-  const text = "INICIE A REBELIÃO COM REBELS ENERGY! /// ";
+  const text = "START THE REBELLION WITH REBELS ENERGY! /// ";
   
   return (
     <div className="w-full bg-accent-500 overflow-hidden py-6 md:py-8 border-y-8 border-black relative z-20 shadow-[0_15px_0px_rgba(0,0,0,1)]">

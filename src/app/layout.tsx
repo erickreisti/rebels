@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
+import { CartProvider } from "../context/CartContext";
+import { CartSidebar } from "../components/layout/CartSidebar";
 
 export const metadata: Metadata = {
   title: "Rebels Energy | Ultra Cyber",
@@ -21,7 +23,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <CartProvider>
+          {children}
+          <CartSidebar />
+        </CartProvider>
+      </body>
     </html>
   );
 }
