@@ -15,8 +15,8 @@
   --color-surface-800: #1a1014;
   --color-surface-900: #0A0608;
   --color-accent-500: #f5a818;
-  --font-title: "Cormorant Garamond", serif;
-  --font-body: "Raleway", sans-serif;
+  --font-title: var(--font-title, serif);
+  --font-body: var(--font-body, sans-serif);
   --text-xs: 0.8rem;
   --text-xs--line-height: 1.2;
   --text-sm: 1rem;

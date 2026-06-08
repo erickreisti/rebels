@@ -1,7 +1,23 @@
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Raleway } from "next/font/google";
 import "../styles/globals.css";
 import { CartProvider } from "../context/CartContext";
 import { CartSidebar } from "../components/layout/CartSidebar";
+
+const fontTitle = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-title",
+  display: "swap",
+});
+
+const fontBody = Raleway({
+  subsets: ["latin"],
+  weight: ["300", "400", "600"],
+  variable: "--font-body",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Rebels Energy | Ultra Cyber",
@@ -14,16 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Raleway:wght@300;400;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="relative">
+    <html lang="pt-br" className={`relative scroll-smooth ${fontTitle.variable} ${fontBody.variable}`}>
+      <body className="relative font-body text-surface-50 bg-surface-900">
         <CartProvider>
           {children}
           <CartSidebar />

@@ -17,17 +17,14 @@ export function AudioVisualizer({ audioRef, isPlaying, onClick }: AudioVisualize
   
   const lastValuesRef = useRef<number[]>([]);
 
-  useEffect(() => {
-    let analyser: AnalyserNode | null = null;
-    
-    // Iniciar contexto de áudio se for dar play
-    if (isPlaying && audioRef?.current && !audioContextRef.current) {
+  const initAudio = () => {
+    if (!audioContextRef.current && audioRef?.current) {
       try {
         const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
         const ctx = new AudioCtx();
         audioContextRef.current = ctx;
         
-        analyser = ctx.createAnalyser();
+        const analyser = ctx.createAnalyser();
         analyser.fftSize = 256; 
         analyserRef.current = analyser;
 
@@ -45,8 +42,15 @@ export function AudioVisualizer({ audioRef, isPlaying, onClick }: AudioVisualize
     if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
       audioContextRef.current.resume();
     }
-    
-    analyser = analyserRef.current;
+  };
+
+  const handleClick = () => {
+    initAudio();
+    onClick();
+  };
+
+  useEffect(() => {
+    let analyser = analyserRef.current;
     
     let phaseOffset = 0;
     const dataArray = analyser ? new Uint8Array(analyser.frequencyBinCount) : null;
@@ -134,7 +138,7 @@ export function AudioVisualizer({ audioRef, isPlaying, onClick }: AudioVisualize
 
   return (
     <button 
-      onClick={onClick}
+      onClick={handleClick}
       title={isPlaying ? "Pause Audio" : "Play Audio"}
       className={`relative group flex items-center justify-center h-10 md:h-12 w-28 md:w-36 cursor-pointer outline-hidden focus:outline-none focus:ring-0 border-none bg-transparent transition-opacity duration-500 ${isPlaying ? "opacity-100" : "opacity-80 hover:opacity-100"}`}
     >

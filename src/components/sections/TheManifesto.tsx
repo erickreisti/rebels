@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useCart } from "../../context/CartContext";
+import Image from "next/image";
 import logoImg from "../../assets/images/winged-skull-glitch-logo.png";
 
 export function TheManifesto() {
@@ -18,6 +19,7 @@ export function TheManifesto() {
   return (
     <motion.section 
       ref={manifestoRef} 
+      style={{ position: "relative" }}
       className="relative min-h-screen border-y-4 border-black bg-black"
       initial="hidden"
       whileInView="visible"
@@ -100,7 +102,7 @@ export function TheManifesto() {
           }}
           className="flex flex-col items-center z-20 w-full -mt-48 md:-mt-72"
         >
-          <img src={logoImg.src} alt="Rebels Energy Glitch Logo" className="w-80 h-80 md:w-[500px] md:h-[500px] object-contain mb-12 drop-shadow-[0_0_40px_rgba(236,72,153,0.8)] hover:scale-105 transition-transform duration-500" />
+          <Image src={logoImg} alt="Rebels Energy Glitch Logo" className="w-80 h-80 md:w-[500px] md:h-[500px] object-contain mb-12 drop-shadow-[0_0_40px_rgba(236,72,153,0.8)] hover:scale-105 transition-transform duration-500" />
           
           <button 
             onClick={() => toggleCart(true)}

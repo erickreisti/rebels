@@ -1,7 +1,10 @@
 "use client";
 import React, { createContext, useState, useEffect, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import confetti from "canvas-confetti";
+
+const MotionImage = motion(Image);
 import imgUltraCyber from "../../assets/images/can-ultra-cyber.png";
 import imgNeonCitrus from "../../assets/images/can-neon-citrus.png";
 import imgQuantumBlue from "../../assets/images/can-quantum-blue.png";
@@ -210,7 +213,7 @@ export function RebelScrollCan({ children }: { children: React.ReactNode }) {
       <MouseContext.Provider value={mousePos}>
         <MediaContext.Provider value={{ isVideoPaused, toggleVideo }}>
           <ActiveProductContext.Provider value={{ activeIndex, setActiveIndex }}>
-            <div ref={containerRef} className="relative w-full" onMouseMove={handleMouseMove}>
+            <div ref={containerRef} className="relative w-full" style={{ position: "relative" }} onMouseMove={handleMouseMove}>
           
           {/* ── Camada de Vídeo de Fundo Balada (sticky, atrás de tudo) ── */}
           <div className="absolute inset-0 pointer-events-none z-5">
@@ -264,7 +267,7 @@ export function RebelScrollCan({ children }: { children: React.ReactNode }) {
                   />
 
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <MotionImage
                       key={activeIndex}
                       initial={phase === "canDrop" ? { opacity: 0, y: 300, scale: 0.5 } : { opacity: 0, scale: 0.8, rotate: -15 }}
                       animate={phase === "canDrop" ? { 
@@ -278,8 +281,9 @@ export function RebelScrollCan({ children }: { children: React.ReactNode }) {
                       whileTap={{ scale: 0.9 }}
                       onClick={() => setActiveIndex((prev) => (prev + 1) % HERO_PRODUCTS.length)}
                       onAnimationComplete={() => phase === "canDrop" && handleImpact()}
-                      src={HERO_PRODUCTS[activeIndex].image.src}
+                      src={HERO_PRODUCTS[activeIndex].image}
                       alt="Rebels Can"
+                      priority={true}
                       className={`relative h-[55vh] md:h-[75vh] w-auto object-contain origin-center ${HERO_PRODUCTS[activeIndex].glow} z-10 transition-all duration-300 cursor-pointer`}
                     />
                   </AnimatePresence>

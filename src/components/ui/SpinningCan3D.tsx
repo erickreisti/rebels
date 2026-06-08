@@ -54,7 +54,7 @@ function CanModel({ imageUrl }: { imageUrl: string }) {
 export function SpinningCan3D({ imageUrl }: { imageUrl: string }) {
   return (
     <div className="w-full h-[300px] lg:h-[450px] relative z-40 pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 6], fov: 40 }} gl={{ alpha: true }}>
+      <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 6], fov: 40 }} gl={{ alpha: true }}>
         <ambientLight intensity={1.5} />
         <directionalLight position={[5, 5, 5]} intensity={2} />
         <Environment preset="night" />

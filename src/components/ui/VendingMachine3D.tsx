@@ -292,7 +292,7 @@ export function VendingMachine3D({
 }) {
   return (
     <div className="relative w-full h-full min-h-[60vh] md:min-h-[80vh] cursor-grab active:cursor-grabbing">
-      <Canvas shadows camera={{ position: [0, 2, 9], fov: 45 }}>
+      <Canvas dpr={[1, 1.5]} shadows camera={{ position: [0, 2, 9], fov: 45 }}>
         
         {/* Iluminação Ambiente Cyberpunk */}
         <ambientLight intensity={0.4} />

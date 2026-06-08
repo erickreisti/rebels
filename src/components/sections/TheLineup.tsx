@@ -1,6 +1,9 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+
+const MotionImage = motion(Image);
 import imgUltraCyber from "../../assets/images/can-ultra-cyber.png";
 import imgNeonCitrus from "../../assets/images/can-neon-citrus.png";
 import imgQuantumBlue from "../../assets/images/can-quantum-blue.png";
@@ -116,8 +119,8 @@ export function TheLineup() {
               exit={{ scale: 1.1, opacity: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <img 
-                src={selectedEnergy.skullImage.src} 
+              <Image 
+                src={selectedEnergy.skullImage} 
                 alt="Caveira de Fundo" 
                 className="w-full max-w-[800px] h-auto object-contain blur-[2px]" 
                 style={selectedEnergy.id === "3" ? { filter: 'sepia(1) hue-rotate(180deg) saturate(3)' } : {}}
@@ -146,9 +149,9 @@ export function TheLineup() {
               
               {/* Lado Esquerdo: Lata Gigante */}
               <motion.div className="w-full md:w-1/2 flex justify-center items-center">
-                <motion.img 
+                <MotionImage 
                   layoutId={`can-${selectedEnergy.id}`}
-                  src={selectedEnergy.image.src} 
+                  src={selectedEnergy.image} 
                   alt={selectedEnergy.line1}
                   className="h-[400px] md:h-[600px] object-contain drop-shadow-[0_0_50px_rgba(0,0,0,0.8)]"
                 />
@@ -262,9 +265,9 @@ export function TheLineup() {
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <motion.img 
+                <MotionImage 
                   layoutId={`can-${energy.id}`}
-                  src={energy.image.src} 
+                  src={energy.image} 
                   alt={`${energy.line1} ${energy.line2}`}
                   className="h-[280px] md:h-[320px] object-contain"
                   style={{ filter: `drop-shadow(15px 15px 0px rgba(0,0,0,0.6))` }}

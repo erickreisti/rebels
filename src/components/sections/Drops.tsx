@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const reviews = [
   {
@@ -74,9 +75,12 @@ export function Drops() {
               </p>
 
               <div className="flex items-center space-x-4 border-t-4 border-white/20 pt-6">
-                <img
+                <Image
                   src={review.avatar}
                   alt={review.name}
+                  width={56}
+                  height={56}
+                  unoptimized
                   className="w-14 h-14 rounded-full border-2 border-white grayscale"
                 />
                 <div>

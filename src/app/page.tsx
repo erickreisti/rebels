@@ -4,18 +4,20 @@ import { Header } from "../components/layout/Header";
 import { Hero } from "../components/sections/Hero";
 import { TheVibe } from "../components/sections/TheVibe";
 import { RebelScrollCan } from "../components/layout/RebelScrollCan";
-import { TheLineup } from "../components/sections/TheLineup";
 import { MarqueeDivider } from "../components/ui/MarqueeDivider";
-import { Formula } from "../components/sections/Formula";
-import { Drops } from "../components/sections/Drops";
-import { Stockists } from "../components/sections/Stockists";
-import { Footer } from "../components/layout/Footer";
+import dynamic from "next/dynamic";
+
+const TheLineup = dynamic(() => import("../components/sections/TheLineup").then((mod) => mod.TheLineup));
+const Formula = dynamic(() => import("../components/sections/Formula").then((mod) => mod.Formula));
+const TheManifesto = dynamic(() => import("../components/sections/TheManifesto").then((mod) => mod.TheManifesto));
+const Drops = dynamic(() => import("../components/sections/Drops").then((mod) => mod.Drops));
+const Stockists = dynamic(() => import("../components/sections/Stockists").then((mod) => mod.Stockists));
+const Footer = dynamic(() => import("../components/layout/Footer").then((mod) => mod.Footer));
 
 import { motion } from "framer-motion";
 // Novos componentes
 import { AudioVisualizer } from "../components/ui/AudioVisualizer";
 import { useCart } from "../context/CartContext";
-import { TheManifesto } from "../components/sections/TheManifesto";
 export default function Home() {
   const { toggleCart } = useCart();
 
