@@ -1,12 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMenu, FiX, FiArrowRight } from "react-icons/fi";
+import { FiMenu, FiX, FiShoppingCart } from "react-icons/fi";
+import { useCart } from "../../context/CartContext";
+import Image from "next/image";
+import logoImg from "../../assets/images/winged-skull-glitch-logo.png";
 
 const navItems = [
   { name: "The Vibe", href: "#about" },
   { name: "The Lineup", href: "#catalog" },
-  { name: "Formula", href: "#features" },
+  { name: "Latest Drop", href: "#latest-drop" },
   { name: "Drops", href: "#blog" },
   { name: "Stockists", href: "#locale" },
 ];
@@ -14,6 +17,7 @@ const navItems = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { toggleCart, cartCount } = useCart();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -29,20 +33,18 @@ export function Header() {
         transition={{ duration: 0.8, delay: 1.5, type: "spring", stiffness: 80 }}
         className={`fixed w-full z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-transparent py-2" 
-            : "bg-transparent"
+            ? "bg-transparent py-4" 
+            : "bg-transparent py-2"
         }`}
       >
         <div className="w-full mx-auto px-4 md:px-8 lg:px-12">
-          <nav className="flex items-center justify-between h-20 md:h-24 w-full">
+          <nav className="flex items-center justify-between h-28 md:h-32 w-full">
             {/* Logo Brutalista com Imagem */}
             <div className="shrink-0">
               <a href="#" className="flex items-center group gap-3 z-10">
-                {/* Logo Tipográfica RE - com ponto pulsante */}
-                <div className="flex items-baseline font-sans font-black tracking-tighter text-4xl md:text-5xl transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(236,72,153,0.5)]">
-                  <span className="text-accent-500">R</span>
-                  <span className="text-white -ml-1 opacity-90">E</span>
-                  <span className="text-purple-500 text-5xl md:text-6xl -ml-1 leading-none animate-pulse">.</span>
+                {/* Logo Caveira Alada */}
+                <div className="transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_20px_rgba(236,72,153,0.6)] flex items-center justify-center">
+                  <Image src={logoImg} alt="Rebels Energy Logo" width={112} height={112} className="object-contain" quality={100} priority />
                 </div>
               </a>
             </div>
@@ -78,14 +80,14 @@ export function Header() {
 
             {/* CTA + Mobile */}
             <div className="shrink-0 flex items-center space-x-4 z-10">
-              <motion.a
-                href="#catalog"
+              <motion.button
+                onClick={() => toggleCart()}
                 className="hidden md:flex items-center gap-2 px-6 py-2.5 border-2 border-black bg-accent-500 text-black text-xs md:text-sm font-sans font-black uppercase tracking-widest shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] transition-all duration-200 rounded-full"
                 whileTap={{ scale: 0.95 }}
               >
-                Shop Now
-                <FiArrowRight className="w-4 h-4" />
-              </motion.a>
+                Cart ({cartCount})
+                <FiShoppingCart className="w-4 h-4" />
+              </motion.button>
 
               <button
                 onClick={() => setIsOpen(true)}
@@ -111,10 +113,8 @@ export function Header() {
             {/* Drawer Header */}
             <div className="flex items-center justify-between p-6 h-24">
               <div className="flex items-center gap-3">
-                <div className="flex items-baseline font-sans font-black tracking-tighter text-4xl">
-                  <span className="text-accent-500">R</span>
-                  <span className="text-white -ml-1 opacity-90">E</span>
-                  <span className="text-purple-500 text-5xl -ml-1 leading-none">.</span>
+                <div className="flex items-center drop-shadow-[0_0_20px_rgba(236,72,153,0.6)]">
+                  <Image src={logoImg} alt="Rebels Energy Logo" width={96} height={96} className="object-contain" quality={100} priority />
                 </div>
               </div>
               <button
@@ -143,14 +143,16 @@ export function Header() {
             </nav>
 
             <div className="p-8 pb-12">
-              <a
-                href="#catalog"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 w-full py-4 bg-accent-500 text-primary-900 font-sans font-bold uppercase tracking-tight rounded-full"
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  toggleCart();
+                }}
+                className="flex items-center justify-center gap-2 w-full py-4 bg-accent-500 border-2 border-black shadow-[4px_4px_0px_#000] text-black font-sans font-black uppercase tracking-tight rounded-full hover:shadow-[2px_2px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
               >
-                Shop Now
-                <FiArrowRight className="w-5 h-5" />
-              </a>
+                Cart ({cartCount})
+                <FiShoppingCart className="w-5 h-5" />
+              </button>
             </div>
           </motion.div>
         )}

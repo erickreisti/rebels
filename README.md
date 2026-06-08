@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/erickreisti/rebels/main/src/assets/images/winged-skull-red.png" alt="Rebels Energy Skull" width="120" />
+  <img src="https://raw.githubusercontent.com/erickreisti/rebels/main/src/assets/images/winged-skull-glitch-logo.png" alt="Rebels Energy Skull Glitch Logo" width="120" />
   <h1 align="center">REBELS ENERGY /// WEB EXPERIENCE</h1>
 
   <p align="center">
