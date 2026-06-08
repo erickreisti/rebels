@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useCart } from "../../context/CartContext";
 import imgUltraCyber from "../../assets/images/can-ultra-cyber.png";
 import imgNeonCitrus from "../../assets/images/can-neon-citrus.png";
 import imgQuantumBlue from "../../assets/images/can-quantum-blue.png";
@@ -87,7 +86,6 @@ const cardVariants = {
 
 export function TheLineup() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const { addToCart, toggleCart } = useCart();
 
   const selectedEnergy = energies.find(e => e.id === selectedId);
 
@@ -194,25 +192,11 @@ export function TheLineup() {
                   </div>
                 </div>
 
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    addToCart({
-                      id: selectedEnergy.id,
-                      name: `${selectedEnergy.line1} ${selectedEnergy.line2}`,
-                      flavor: selectedEnergy.description.split('.')[0],
-                      price: 4.99,
-                      quantity: 1,
-                      image: selectedEnergy.image.src,
-                      color: selectedEnergy.hexColor
-                    });
-                    toggleCart(true);
-                  }}
-                  className={`${selectedEnergy.solidBg} text-black border-4 border-black shadow-[6px_6px_0px_#000] font-black uppercase tracking-widest text-lg py-4 px-8 rounded-none transform rotate-1 hover:rotate-0 hover:shadow-[2px_2px_0px_#000] hover:translate-x-[4px] hover:translate-y-[4px] transition-all`}
+                <div 
+                  className={`${selectedEnergy.solidBg} text-black border-4 border-black shadow-[6px_6px_0px_#000] font-black uppercase tracking-widest text-lg py-4 px-8 rounded-none transform rotate-1 text-center select-none`}
                 >
-                  Claim Power
-                </motion.button>
+                  Exclusive at Events
+                </div>
               </motion.div>
 
             </div>

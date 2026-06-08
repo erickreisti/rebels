@@ -1,20 +1,19 @@
 "use client";
 import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
 
-export interface CartItem {
+export interface TicketItem {
   id: string;
-  name: string;
-  flavor: string;
+  eventName: string;
+  date: string;
+  location: string;
   price: number;
   quantity: number;
-  image: string;
-  color: string;
 }
 
 interface CartContextType {
-  cartItems: CartItem[];
+  cartItems: TicketItem[];
   isCartOpen: boolean;
-  addToCart: (item: CartItem) => void;
+  addToCart: (item: TicketItem) => void;
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   toggleCart: (open?: boolean) => void;
@@ -26,7 +25,7 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<TicketItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Sync with localStorage on mount
@@ -46,7 +45,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("rebels-cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (newItem: CartItem) => {
+  const addToCart = (newItem: TicketItem) => {
     setCartItems((prev) => {
       const existingItem = prev.find((item) => item.id === newItem.id);
       if (existingItem) {

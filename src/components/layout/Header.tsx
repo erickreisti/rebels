@@ -1,7 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMenu, FiX, FiShoppingCart } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
+import { FaTicketAlt } from "react-icons/fa";
 import { useCart } from "../../context/CartContext";
 import Image from "next/image";
 import logoImg from "../../assets/images/winged-skull-glitch-logo.png";
@@ -99,8 +100,8 @@ export function Header() {
                 className="hidden md:flex items-center gap-2 px-6 py-2.5 border-2 border-black bg-accent-500 text-black text-xs md:text-sm font-sans font-black uppercase tracking-widest shadow-[4px_4px_0px_#000] transform -rotate-2 hover:-rotate-1 hover:shadow-[2px_2px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] transition-all duration-200"
                 whileTap={{ scale: 0.95 }}
               >
-                Cart ({cartCount})
-                <FiShoppingCart className="w-4 h-4" />
+                Passes {cartCount > 0 && `(${cartCount})`}
+                <FaTicketAlt className="w-4 h-4" />
               </motion.button>
 
               <button
@@ -178,8 +179,8 @@ export function Header() {
                 }}
                 className="flex items-center justify-center gap-3 w-full py-3 md:py-4 bg-accent-500 border-4 border-white shadow-[4px_4px_0px_#ec4899] text-black font-sans font-black text-lg md:text-xl uppercase tracking-widest transform -rotate-1 hover:rotate-0 hover:shadow-none hover:translate-y-1 hover:translate-x-1 transition-all"
               >
-                Cart ({cartCount})
-                <FiShoppingCart className="w-5 h-5 md:w-6 md:h-6" />
+                Passes {cartCount > 0 && `(${cartCount})`}
+                <FaTicketAlt className="w-5 h-5 md:w-6 md:h-6" />
               </button>
             </div>
           </motion.div>
