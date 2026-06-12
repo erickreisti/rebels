@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rebels.energy/sitemap.xml

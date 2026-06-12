@@ -233,17 +233,18 @@ export function Hero() {
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
               className="text-center md:text-right"
             >
-              <motion.h1 
+              {/* p styled identically to the h1 — keeps only one h1 per page for SEO */}
+              <motion.p
                 key={`right-${activeIndex}`}
                 initial={{ x: "100%", opacity: 0 }}
                 animate={phase === "impact" ? { x: 0, opacity: 1 } : { x: "100%", opacity: 0 }}
                 transition={{ type: "spring", bounce: 0.5, duration: 0.8, delay: 0.1 }}
-                className="font-sans font-black text-primary-50 leading-[0.85] tracking-tighter glitch-text-right" 
+                className="font-sans font-black text-primary-50 leading-[0.85] tracking-tighter glitch-text-right m-0" 
                 style={{ fontSize: "clamp(4rem, 8vw, 10rem)" }}
                 data-glitch={`${content.right}.`}
               >
                 {content.right}<span className={content.dot}>.</span>
-              </motion.h1>
+              </motion.p>
             </motion.div>
             
             {/* Botão Gigante e Chamativo — abaixo do BOLD */}
